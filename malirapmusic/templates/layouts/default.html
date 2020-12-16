@@ -30,7 +30,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-sugu sticky-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="{% static 'img/new-logo2-white.png' %}" alt="" width="30"
+                <a href="{% url 'index' %}" class="navbar-brand" href="#"><img src="{% static 'img/new-logo2-white.png' %}" alt="" width="30"
                         height="30" class="d-inline-block align-top">
                     Mali Rap Music</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -76,7 +76,7 @@
                 <div class="row border-bottom">
                     <div class="col-2 col-sm-2 text-sm-center col-md-2 col-lg-2 col-xl-2">
                         <div class="ui small image">
-                            <a href="#"><img src="{% static 'img/new-logo2-white.png' %}" width="70"></a>
+                            <a href="{% url 'index' %}"><img src="{% static 'img/new-logo2-white.png' %}" width="70"></a>
                         </div>
                     </div>
                     <div
@@ -110,7 +110,7 @@
         {% endblock %}
     </div>
 
-    <div class="container bg-white p-4 shadow">
+    <div class="container">
         {% block content %}
         {% endblock %}
     </div>

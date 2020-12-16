@@ -1,5 +1,6 @@
 {% extends 'layouts/default.html' %}
 {% load static %}
+{% load humanize %}
 
 {% block slider %}
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -157,76 +158,27 @@
 
 {% block content %}
 <div class="row mt-2">
-    <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+    <div class="bg-white p-4 shadow rounded-3 col-sm-12 col-md-8 col-lg-8 col-xl-8">
         <div class="row">
+            {% for article in articles %}
             <article class="col-6 col-sm-6 col-md-6 col-lg-4 col-lg-4">
                 <div class="ui medium image">
-                    <a href="single.html"> <img class="rounded border"
-                            src="{% static 'img/slider/gais-loup-bolon-kono.jpg' %}"></a>
-                    <h1 class="text-title mt-1"><a class="text-decoration-none text-dark" href="#">FUEGO KHALIFA
-                            - CLAXON (Par Zy Pagala Prod)</a></h1>
+                    <a href="{% url 'detail' article.slug %}"> <img class="rounded border"
+                            src="{% static article.cover.url %}"></a>
+                    <h1 class="text-title mt-1"><a class="text-decoration-none text-dark" href="{% url 'detail' article.slug %}">{{ article.title}}</a></h1>
                     <ul class="list-unstyled small text-muted meta-title">
-                        <li class="d-inline-block"><span class="fas fa-clock"></span> Il y'a 2minutes |</li>
-                        <li class="d-inline-block"><span class="fas fa-eye"></span> 200 |</li>
-                        <li class="d-inline-block"><span class="fas fa-download"></span> 200</li>
+                        <li class="d-inline-block"><span class="fas fa-clock"></span> {{article.created_at|naturaltime}} |</li>
+                        <li class="d-inline-block"><span class="fas fa-eye"></span> {{article.views}} |</li>
+                        <li class="d-inline-block"><span class="fas fa-download"></span> {{article.download}}</li>
                     </ul>
                 </div>
             </article>
-            <article class="col-6 col-sm-6 col-md-6 col-lg-4 col-lg-4">
-                <div class="ui medium image">
-                    <a href="#"> <img class="rounded border" src="{% static 'img/slider/young-respect.jpg' %}"></a>
-                    <h1 class="text-title mt-1"><a class="text-decoration-none text-dark" href="#">FUEGO KHALIFA
-                            - CLAXON (Par Zy Pagala Prod)</a></h1>
-                    <ul class="list-unstyled small text-muted meta-title">
-                        <li class="d-inline-block"><span class="fas fa-clock"></span> Il y'a 2minutes |</li>
-                        <li class="d-inline-block"><span class="fas fa-eye"></span> 200 |</li>
-                        <li class="d-inline-block"><span class="fas fa-download"></span> 200</li>
-                    </ul>
-                </div>
-            </article>
-            <article class="col-6 col-sm-6 col-md-6 col-lg-4 col-lg-4">
-                <div class="ui medium image">
-                    <a href="#"> <img class="rounded border" src="{% static 'img/slider/silex-man-og-trap-lourd-o.jpg' %}"></a>
-                    <h1 class=" text-title mt-1"><a class="text-decoration-none text-dark" href="#">FUEGO
-                            KHALIFA
-                            - CLAXON (Par Zy Pagala Prod)</a></h1>
-                        <ul class="list-unstyled small text-muted meta-title">
-                            <li class="d-inline-block"><span class="fas fa-clock"></span> Il y'a 2minutes |</li>
-                            <li class="d-inline-block"><span class="fas fa-eye"></span> 200 |</li>
-                            <li class="d-inline-block"><span class="fas fa-download"></span> 200</li>
-                        </ul>
-                </div>
-            </article>
-            <article class="col-6 col-sm-6 col-md-6 col-lg-4 col-lg-4">
-                <div class="ui medium image">
-                    <a href="#"> <img class="rounded border"
-                            src="{% static 'img/slider/gais-loup-freestyle-2019-01.jpg' %}"></a>
-                    <h1 class="text-title mt-1"><a class="text-decoration-none text-dark" href="#">FUEGO KHALIFA
-                            - CLAXON (Par Zy Pagala Prod)</a></h1>
-                    <ul class="list-unstyled small text-muted meta-title">
-                        <li class="d-inline-block"><span class="fas fa-clock"></span> Il y'a 2minutes |</li>
-                        <li class="d-inline-block"><span class="fas fa-eye"></span> 200 |</li>
-                        <li class="d-inline-block"><span class="fas fa-download"></span> 200</li>
-                    </ul>
-                </div>
-            </article>
-            <article class="col-6 col-sm-6 col-md-6 col-lg-4 col-lg-4">
-                <div class="ui medium image">
-                    <a href="#"> <img class="rounded border" src="{% static 'img/slider/lil-bouna-hbd-bg-black.jpg' %}"></a>
-                    <h1 class="text-title mt-1"><a class="text-decoration-none text-dark" href="#">FUEGO KHALIFA
-                            - CLAXON (Par Zy Pagala Prod)</a></h1>
-                    <ul class="list-unstyled small text-muted meta-title">
-                        <li class="d-inline-block"><span class="fas fa-clock"></span> Il y'a 2minutes |</li>
-                        <li class="d-inline-block"><span class="fas fa-eye"></span> 200 |</li>
-                        <li class="d-inline-block"><span class="fas fa-download"></span> 200</li>
-                    </ul>
-                </div>
-            </article>
+            {% endfor %}
         </div>
     </div>
-    <div class="ui sticky col-sm-12 col-md-4 col-lg-4 col-xl-4 border-start">
+    <div class="bg-black p-4 border rounded-3 col-sm-12 col-md-4 col-lg-3 col-xl-3 ms-lg-4">
         <aside>
-            <h3>Top article</h3>
+            {% include 'articles/aside.html' %}
         </aside>
     </div>
 </div>
