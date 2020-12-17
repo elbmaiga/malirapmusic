@@ -6,7 +6,7 @@
 <div class="row mt-2">
     <div class="bg-white p-4 shadow rounded-3 col-sm-12 col-md-8 col-lg-8 col-xl-8">
         <div class="row">
-            <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+            <div class="col-12">
                 <nav aria-label="breadcrumb ">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Accueil</a></li>
@@ -15,9 +15,8 @@
                     </ol>
                 </nav>
                 {% for category in article.category.all %}
-                <a href="#"><span class="badge rounded-pill bg-secondary">{{category}}</span></a>
+                <a href="{% url 'search' category %}"><span class="badge rounded-pill bg-secondary">{{category}}</span></a>
                 {% endfor %}
-
                 <div class="row text-mac mb-4">
                     <h1>{{ article.title }}</h1>
                     <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
@@ -44,7 +43,7 @@
                     </div>
                     {% for m in article.media.all %}                    
                     <p class="text-center">
-                        <a class="text-decoration-none btn btn-lg btn-outline-sugu" href="{{m.url}}" download=""><span
+                        <a class="text-decoration-none btn btn-sm btn-outline-sugu" href="static/{{m.url}}" download="static/{{m.url}}"><span
                                 class="fa fa-download"></span> Télécharger</a>
                     </p>
                     {% endfor %}

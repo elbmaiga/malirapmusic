@@ -79,12 +79,11 @@
                             <a href="{% url 'index' %}"><img src="{% static 'img/new-logo2-white.png' %}" width="70"></a>
                         </div>
                     </div>
-                    <div
-                        class="d-none col-6 d-sm-none col-sm-10 d-md-inline-block col-md-6 d-lg-inline-block col-lg-6 d-xl-inline-block col-xl-6 mt-sm-2 mt-md-2 mt-lg-3 mt-xl-3">
-                        <div class="ui small fluid action input">
-                            <input type="text" placeholder="Search...">
-                            <button class="ui small button"><span class="fa fa-search"></span></button>
-                        </div>
+                    <div class="d-none col-6 d-sm-none col-sm-10 d-md-inline-block col-md-6 d-lg-inline-block col-lg-6 d-xl-inline-block col-xl-6 mt-sm-2 mt-md-2 mt-lg-3 mt-xl-3">
+                            <form class="ui small fluid action input" method="GET" action="{% url 'search_form' %}">
+                                <input name="s" type="text" placeholder="Search...">
+                                <button type="submit" class="ui small button"><span class="fa fa-search"></span></button>
+                            </form>
                     </div>
                     <div
                         class="d-xs-none col-4 col-sm-8 text-sm-center col-md-4 col-lg-4 col-xl-4 mt-sm-2 mt-md-3 mt-lg-3 mt-xl-3">
