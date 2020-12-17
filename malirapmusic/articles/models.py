@@ -57,3 +57,14 @@ class Articles(models.Model):
 
     def __str__(self):
         return self.title
+
+class Galleries(models.Model):
+    title = models.CharField("Title", max_length=255, blank=True)
+    file = models.ImageField(upload_to="gallery/")
+    views = models.IntegerField("Views number", default=0)
+    created_at = models.DateTimeField("Created at", auto_now_add=True)
+
+    def __str__(self):
+        if self.title:
+            return self.title
+        else: return self.file.url

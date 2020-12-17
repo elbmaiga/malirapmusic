@@ -11,3 +11,4 @@ class ArticleAdmin(admin.ModelAdmin):
 admin.site.register(Articles, ArticleAdmin)
 admin.site.register(Category)
 admin.site.register(File_Uploaded)
+admin.site.register(Galleries)

@@ -1,12 +1,14 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, HttpResponse
 from django.db.models import Q
 from .models import *
 # Create your views here.
 
 def index(request):
-    articles = Articles.objects.all()
+    articles = Articles.objects.all().order_by('-created_at')
+    isActive = True
     datas = {
-        'articles': articles
+        'articles': articles,
+        'active': isActive
     }
     return render(request, 'articles/index.html', datas)
 
@@ -21,14 +23,27 @@ def detail(request, param):
     }
     return render(request, 'articles/detail.html', datas)
 
-def search(request, param):
-    result = Articles.objects.filter(Q(title__icontains=param) | Q(category__fields__icontains=param))
-    datas = {
-        'results': result
-    }
-    return render(request, 'articles/search.html', datas)
+def find_category(request, param):
+    if param == 'singles':
+        page = 'articles/single.html'
+    elif param == 'videos':
+        page = 'articles/video.html'
+    elif param == 'downloads':
+        page = 'articles/download.html'
+    elif param == 'albums':
+        page = 'articles/album.html'
+    elif param == 'actu-buzz':
+        page = 'articles/actu_buzz.html'
+    else:
+        page = 'articles/search.html'
 
-def search_form(request):
+    articles = Articles.objects.filter(Q(title__icontains=param) | Q(category__fields__icontains=param))
+    datas = {
+        'results': articles
+    }
+    return render(request, page, datas)
+
+def search(request):
     context = request.GET['s']
     result = Articles.objects.filter(Q(title__icontains=context) | Q(category__fields__icontains=context))
     datas = {
@@ -36,3 +51,10 @@ def search_form(request):
         'context': context
     }
     return render(request, 'articles/search.html', datas)
+
+def gallery(request):
+    queryset = Galleries.objects.all().order_by('-created_at')
+    datas = {
+        'galleries': queryset,
+    }
+    return render(request, 'articles/gallery.html', datas)

@@ -18,6 +18,12 @@ header, aside, footer {
 	font-size: 14px;
 }
 
+.single-text-title {
+	font-family: Montserrat;
+	font-weight: bold;
+	font-size: 20px;
+}
+
 .meta-title {
 	font-family: 'Ubuntu Condensed';
 	font-size: smaller;

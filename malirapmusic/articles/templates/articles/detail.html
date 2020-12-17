@@ -15,7 +15,7 @@
                     </ol>
                 </nav>
                 {% for category in article.category.all %}
-                <a href="{% url 'search' category %}"><span class="badge rounded-pill bg-secondary">{{category}}</span></a>
+                <a href="{% url 'find_category' category %}"><span class="badge rounded-pill bg-secondary">{{category}}</span></a>
                 {% endfor %}
                 <div class="row text-mac mb-4">
                     <h1>{{ article.title }}</h1>
