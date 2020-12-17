@@ -49,7 +49,7 @@ class Articles(models.Model):
     slug = models.SlugField("Slug", max_length=255, unique=True)
     content = models.TextField("Content", default="N/A", blank=True)
     cover = models.ImageField(upload_to="libraries/")
-    media = models.ManyToManyField(File_Uploaded)
+    media = models.ManyToManyField(File_Uploaded, blank=True)
     created_at = models.DateTimeField("Created at", auto_now_add=True)
     views = models.IntegerField("Views number", default=0)
     download = models.IntegerField("Download number", default=0)
