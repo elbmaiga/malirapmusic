@@ -18,6 +18,10 @@ header, aside, footer {
 	font-size: 14px;
 }
 
+.text-justify {
+    text-align: justify !important;
+}
+
 .single-text-title {
 	font-family: "San Francisco", Montserrat;
 	font-weight: bold;
