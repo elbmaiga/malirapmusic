@@ -10,7 +10,7 @@ header, aside, footer {
 }
 
 .text-mac {
-	font-family: "San Francisco";
+	font-family: "San Francisco", Montserrat;
 }
 .text-title {
 	font-family: Montserrat;
@@ -19,7 +19,7 @@ header, aside, footer {
 }
 
 .single-text-title {
-	font-family: Montserrat;
+	font-family: "San Francisco", Montserrat;
 	font-weight: bold;
 	font-size: 20px;
 }

@@ -81,7 +81,7 @@
                     </div>
                     <div class="d-none col-6 d-sm-none col-sm-10 d-md-inline-block col-md-5 d-lg-inline-block col-lg-6 d-xl-inline-block col-xl-6 mt-sm-2 mt-md-2 mt-lg-3 mt-xl-3">
                             <form class="ui small fluid action input" method="GET" action="{% url 'search' %}">
-                                <input name="s" type="text" placeholder="Search...">
+                                <input name="s" type="text" placeholder="Recherche...">
                                 <button type="submit" class="ui small button"><span class="fa fa-search"></span></button>
                             </form>
                     </div>
@@ -127,11 +127,13 @@
     <script src="{% static 'stylesheets/sugu.js' %}"></script>
     <script>
         $(document).ready(function () {
-            $('.article').mouseenter(function () {
+            $('.icon-play').mouseenter(function () {
                 $(this).addClass('shadow')
+                $(this).css('opacity', '1')
             })
-            $('.article').mouseleave(function () {
+            $('.icon-play').mouseleave(function () {
                 $(this).removeClass('shadow')
+                $(this).css('opacity', '0.5')
             })
         })
     </script>

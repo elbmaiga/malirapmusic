@@ -21,6 +21,19 @@ class Category(models.Model):
     def __str__(self):
         return self.fields
 
+
+class External_Links(models.Model):
+    YOUTUBE = "YOUTUBE"
+    title = models.CharField("Title", max_length=255)
+    TYPE = [
+        ('Youtube', YOUTUBE)
+    ]
+    source = models.CharField("Source", max_length=30, choices=TYPE)
+    link = models.URLField("Link", max_length=255)
+
+    def __str__(self):
+        return self.source
+
 class File_Uploaded(models.Model):
     MP3 = "MP3"
     MP4 = "MP4"
@@ -50,6 +63,7 @@ class Articles(models.Model):
     content = models.TextField("Content", default="N/A", blank=True)
     cover = models.ImageField(upload_to="libraries/")
     media = models.ManyToManyField(File_Uploaded, blank=True)
+    external_link = models.ManyToManyField(External_Links, blank=True)
     created_at = models.DateTimeField("Created at", auto_now_add=True)
     views = models.IntegerField("Views number", default=0)
     download = models.IntegerField("Download number", default=0)

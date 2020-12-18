@@ -41,7 +41,18 @@
                             </li>
                         </ul>
                     </div>
-                    {% for m in article.media.all %}                    
+                    {% if article.external_link %}
+                        {% for link in article.external_link.all %}
+                            <div class="m-4">
+                                <h2 class="single-text-title">{{link.title}}</h2>
+                            <iframe title="{{link.title}}" class="" width="640" height="360"
+                            src="{{link.link}}?autoplay=0&mute=0&controls=1" allowfullscreen>
+                            </iframe>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% for m in article.media.all %}
                     <p class="text-center">
                         <a class="text-decoration-none btn btn-sm btn-outline-sugu" href="static/{{m.url}}" download="static/{{m.url}}"><span
                                 class="fa fa-download"></span> Télécharger</a>
