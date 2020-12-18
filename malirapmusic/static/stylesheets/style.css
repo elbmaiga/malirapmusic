@@ -10,12 +10,22 @@ header, aside, footer {
 }
 
 .text-mac {
-	font-family: "San Francisco";
+	font-family: "San Francisco", Montserrat;
 }
 .text-title {
 	font-family: Montserrat;
 	font-weight: bold;
 	font-size: 14px;
+}
+
+.text-justify {
+    text-align: justify !important;
+}
+
+.single-text-title {
+	font-family: "San Francisco", Montserrat;
+	font-weight: bold;
+	font-size: 20px;
 }
 
 .meta-title {

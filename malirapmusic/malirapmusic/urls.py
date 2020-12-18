@@ -18,9 +18,15 @@ from django.urls import path, include
 
 import debug_toolbar
 
+from articles import views as article_views
 from articles import urls
+from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('about/', views.about, kwargs={}, name='about'),
+    path('contact/', views.contact, kwargs={}, name='contact'),
     path('__debug__/', include(debug_toolbar.urls)),
     path('', include('articles.urls')),
+    path('store/', include('store.urls')),
+    path('gallery/', article_views.gallery, kwargs={},  name='gallery'),
 ]
