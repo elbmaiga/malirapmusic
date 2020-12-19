@@ -27,6 +27,7 @@ urlpatterns = [
     path('about/', views.about, kwargs={}, name='about'),
     path('contact/', views.contact, kwargs={}, name='contact'),
     path('controller', include('controller.urls')),
+    path('maintenance', views.maintenance, kwargs={}, name='maintenance'),
     path('__debug__/', include(debug_toolbar.urls)),
     path('', include('articles.urls')),
     path('store/', include('store.urls')),

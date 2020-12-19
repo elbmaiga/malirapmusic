@@ -5,10 +5,10 @@ from .models import *
 
 def index(request):
     articles = Articles.objects.all().order_by('-created_at')
-    isActive = True
+
     datas = {
+        'title': 'home',
         'articles': articles,
-        'active': isActive
     }
     return render(request, 'articles/index.html', datas)
 
@@ -39,6 +39,7 @@ def find_category(request, param):
 
     articles = Articles.objects.filter(Q(title__icontains=param) | Q(category__fields__icontains=param))
     datas = {
+        'title': param,
         'results': articles
     }
     return render(request, page, datas)
@@ -55,6 +56,7 @@ def search(request):
 def gallery(request):
     queryset = Galleries.objects.all().order_by('-created_at')
     datas = {
+        'title': 'galleries',
         'galleries': queryset,
     }
     return render(request, 'articles/gallery.html', datas)

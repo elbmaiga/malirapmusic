@@ -1,7 +1,19 @@
 from django.shortcuts import render
 
 def about(request):
-    return render(request, 'about.html')
+    datas = {
+        'title': 'about'
+    }
+    return render(request, 'about.html', datas)
 
 def contact(request):
-    return render(request, 'contact.html')
+    datas = {
+        'title': 'contatct'
+    }
+    return render(request, 'contact.html', datas)
+
+def maintenance(request):
+    datas = {
+        'title': 'maintenance'
+    }
+    return render(request, 'maintenance.html', datas)
