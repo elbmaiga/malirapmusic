@@ -9,7 +9,7 @@ class Category(models.Model):
     ACTU_BUZZ = "ACTU BUZZ"
     OTHERS = "OTHERS"
     CATEGORY = [
-        ("Actu Buzz", ACTU_BUZZ),
+        ("Actu-Buzz", ACTU_BUZZ),
         ("Albums", ALBUMS),
         ("Singles", SINGLES),
         ("Videos", VIDEOS),

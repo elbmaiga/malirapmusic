@@ -33,9 +33,11 @@
                             <li>
                                 <span class="fa fa-eye"></span> {{ article.views }} Vues
                             </li>
+                            {% if article.media.all %}
                             <li>
                                 <span class="fas fa-download"></span> {{ article.download}} Téléchargements
                             </li>
+                            {% endif %}
                             <li>
                                 <span class="fa fa-clock"></span> {{ article.created_at|naturaltime }}
                             </li>
