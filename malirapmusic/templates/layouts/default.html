@@ -5,6 +5,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- You can use open graph tags to customize link previews.
+    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+    {% block social_share %}
+    <meta property="og:url"           content="https://www.malirapmusic.net/" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Your Website Title" />
+    <meta property="og:description"   content="Your description" />
+    <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
+    {% endblock %}
+
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/new-logo2-bg-white.png' %}" />
     <link rel="stylesheet" href="{% static 'stylesheets/Semantic-UI-CSS-master/components/menu.min.css' %}">
     <link rel="stylesheet" href="{% static 'stylesheets/Semantic-UI-CSS-master/components/header.min.css' %}">
     <link rel="stylesheet" href="{% static 'stylesheets/Semantic-UI-CSS-master/components/step.min.css' %}">
@@ -53,7 +65,7 @@
                             <a class="nav-link" href="{% url 'store_index' %}"><span class="fas fa-shopping-bag"></span> Boutique</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><span class="fas fa-comments"></span> Blog</a>
+                            <a class="nav-link" href="{% url 'maintenance' %}"><span class="fas fa-comments"></span> Blog</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'find_category' 'singles' %}"><span class="fas fa-music"></span> Single</a>
@@ -115,7 +127,7 @@
     </div>
     <footer class="bg-sugu text-light p-1 sticky-bottom">
         <p class="text-center small text-muted">
-            &copy; 2020 - Malirapmusic.net | All rights reserved
+            &copy; 2017 - Malirapmusic.net | All rights reserved
         </p>
     </footer>
 

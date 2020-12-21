@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'layouts/default.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %} {{title|title}} - {% endblock %}
+
+{% block content %}
+<div class="row mt-2">
+    <div class="bg-white p-4 shadow rounded-3 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+        <div class="row">
+           <h2 class="text-center">Page introuvale !</h2>
+        </div>
+    </div>
+    <div class="bg-black p-4 border rounded-3 col-sm-12 col-md-4 col-lg-3 col-xl-3 ms-lg-4">
+        <aside>
+            {% include 'articles/aside.html' %}
+        </aside>
+    </div>
+</div>
+{% endblock %}

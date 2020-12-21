@@ -1,42 +1,14 @@
 {% load static %}
 <div class="row mb-2">
                 <h3 class="bg-light p-2">Top articles</h3>
+                {% for article in most_views %}
                 <article class="col-6 col-sm-4 col-md-6 col-lg-6 col-xl-6 p-1">
                     <div class="ui small image">
-                        <a class="d-inline" href="#"> <img class="rounded border"
-                                src="{% static 'img/slider/lil-bouna-hbd-bg-black.jpg' %}"></a>
+                        <a class="d-inline" href="{% url 'detail' article.slug %}"> <img class="rounded border"
+                                src="{% static article.cover.url %}"></a>
                     </div>
                 </article>
-                <article class="col-6 col-sm-4 col-md-6 col-lg-6 col-xl-6 p-1">
-                    <div class="ui small image">
-                        <a class="d-inline" href="#"> <img class="rounded border"
-                                src="{% static 'img/slider/lil-bouna-hbd-bg-black.jpg' %}"></a>
-                    </div>
-                </article>
-                <article class="col-6 col-sm-4 col-md-6 col-lg-6 col-xl-6 p-1">
-                    <div class="ui small image">
-                        <a class="d-inline" href="#"> <img class="rounded border"
-                                src="{% static 'img/slider/lil-bouna-hbd-bg-black.jpg' %}"></a>
-                    </div>
-                </article>
-                <article class="col-6 col-sm-4 col-md-6 col-lg-6 col-xl-6 p-1">
-                    <div class="ui small image">
-                        <a class="d-inline" href="#"> <img class="rounded border"
-                                src="{% static 'img/slider/lil-bouna-hbd-bg-black.jpg' %}"></a>
-                    </div>
-                </article>
-                <article class="col-6 col-sm-4 col-md-6 col-lg-6 col-xl-6 p-1">
-                    <div class="ui small image">
-                        <a class="d-inline" href="#"> <img class="rounded border"
-                                src="{% static 'img/slider/lil-bouna-hbd-bg-black.jpg' %}"></a>
-                    </div>
-                </article>
-                <article class="col-6 col-sm-4 col-md-6 col-lg-6 col-xl-6 p-1">
-                    <div class="ui small image">
-                        <a class="d-inline" href="#"> <img class="rounded border"
-                                src="{% static 'img/slider/lil-bouna-hbd-bg-black.jpg' %}"></a>
-                    </div>
-                </article>
+                {% endfor %}
             </div>
             <div class="row mb-2">
                 <h3 class="bg-light p-2">Top articles</h3>
