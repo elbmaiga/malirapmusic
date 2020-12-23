@@ -17,7 +17,7 @@
                     </ol>
                 </nav>
                 {% for category in article.category.all %}
-                <a href="{% url 'find_category' category %}"><span class="badge rounded-pill bg-secondary">{{category}}</span></a>
+                <a href="{% url 'find_category' category %}"><span class="badge rounded-pill bg-sugu">{{category}}</span></a>
                 {% endfor %}
                 <div class="row text-mac mb-4">
                     <h1>{{ article.title }}</h1>
@@ -62,6 +62,8 @@
                                 class="fa fa-download"></span> Télécharger</a>
                     </p>
                     {% endfor %}
+                    <div class="fb-share-button" data-href="{% url 'detail' article.slug %}" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Partager</a></div>
+                    <div class="fb-comments mt-4" data-href="http://www.malirapmusic.net/posts/2802/" data-width="" data-numposts="5"></div>
                 </div>
                 <div class="row container p-4 shadow border bg-dark text-light rounded">
                     <div class="col-12">

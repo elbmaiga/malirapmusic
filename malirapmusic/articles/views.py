@@ -5,7 +5,7 @@ from .models import *
 # Create your views here.
 
 def index(request):
-    ARTICLE_PER_PAGE = 1
+    ARTICLE_PER_PAGE = 20
 
     articles = get_list_or_404(Articles.objects.order_by('-created_at'))
     try:
@@ -29,6 +29,7 @@ def index(request):
 def detail(request, param):
     #articles = Articles.objects.get(slug=param)
     article = get_object_or_404(Articles, slug=param)
+
     article.views += 1
     article.save()
     most_views = Articles.objects.all().order_by('-views')[:6]
