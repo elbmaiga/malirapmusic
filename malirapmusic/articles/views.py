@@ -8,19 +8,21 @@ def index(request):
     ARTICLE_PER_PAGE = 20
 
     articles = get_list_or_404(Articles.objects.order_by('-created_at'))
-    try:
-        paginator = Paginator(articles, ARTICLE_PER_PAGE)
-    except:
-        return HttpResponse("Hello")
+    paginator = Paginator(articles, ARTICLE_PER_PAGE)
     page_number = request.GET.get('page')
     if not page_number:
         page_number = 1
     page_obj = paginator.get_page(page_number)
     most_views = Articles.objects.all().order_by('-views')[:6]
-
+    slide_one = Articles.objects.filter(slide_one=True)[:3]
+    slide_two = Articles.objects.filter(slide_two=True)[:3]
+    slide_three = Articles.objects.filter(slide_three=True)[:3]
     datas = {
         'most_views': most_views,
         'title': 'home',
+        'slide_one': slide_one,
+        'slide_two': slide_two,
+        'slide_three': slide_three,
         'articles': paginator.page(page_number),
         'page_obj': page_obj,
     }

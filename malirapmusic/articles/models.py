@@ -67,7 +67,9 @@ class Articles(models.Model):
     created_at = models.DateTimeField("Created at", auto_now_add=True)
     views = models.IntegerField("Views number", default=0)
     download = models.IntegerField("Download number", default=0)
-    is_in_pub = models.BooleanField("Is in pub", default=False)
+    slide_one = models.BooleanField("Slide 1", default=False)
+    slide_two = models.BooleanField("Slide 2", default=False)
+    slide_three = models.BooleanField("Slide 3", default=False)
 
     def __str__(self):
         return self.title

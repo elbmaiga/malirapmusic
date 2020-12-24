@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     'articles.apps.ArticlesConfig',
     'store.apps.StoreConfig',
+    'controller.apps.ControllerConfig',
 ]
 
 MIDDLEWARE = [
