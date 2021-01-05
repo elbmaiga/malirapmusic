@@ -7,7 +7,7 @@ from .models import *
 def index(request):
     ARTICLE_PER_PAGE = 20
 
-    articles = get_list_or_404(Articles.objects.order_by('-created_at'))
+    articles = Articles.objects.all().order_by('-created_at')
     paginator = Paginator(articles, ARTICLE_PER_PAGE)
     page_number = request.GET.get('page')
     if not page_number:
@@ -47,8 +47,6 @@ def find_category(request, param):
         page = 'articles/single.html'
     elif param == 'videos':
         page = 'articles/video.html'
-    elif param == 'downloads':
-        page = 'articles/download.html'
     elif param == 'albums':
         page = 'articles/album.html'
     elif param == 'actu-buzz':
@@ -74,7 +72,8 @@ def find_category(request, param):
 
 def search(request):
     context = request.GET['s']
-    result = Articles.objects.filter(Q(title__icontains=context) | Q(category__fields__icontains=context))
+    #result = Articles.objects.filter(Q(title__icontains=context) | Q(category__fields__icontains=context))
+    result = Articles.objects.filter(title__icontains=context)
     datas = {
         'results': result,
         'context': context

@@ -1,0 +1,12 @@
+[
+  {
+    'model': 'malirapmusic.articles',
+    "pk": 1,
+    "fields": {
+      'title': "Gaspi - Je m'en kidada",
+      'Category': 2,
+      'slug': 'gaspi-je-m-en-kidada',
+      'cover': 'libraries/austin-family-hit.jpg',
+    }
+  }
+]

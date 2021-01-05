@@ -15,21 +15,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
-import debug_toolbar
-
 from articles import views as article_views
 from articles import urls
-from controller import urls
+from blog import urls
 from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('about/', views.about, kwargs={}, name='about'),
     path('contact/', views.contact, kwargs={}, name='contact'),
-    path('controller', include('controller.urls')),
     path('maintenance', views.maintenance, kwargs={}, name='maintenance'),
-    path('__debug__/', include(debug_toolbar.urls)),
     path('', include('articles.urls')),
+    path('blog/', include('blog.urls')),
     path('store/', include('store.urls')),
     path('gallery/', article_views.gallery, kwargs={},  name='gallery'),
 ]
+
+from .dev import DEBUG
+
+if DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns

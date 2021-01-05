@@ -66,6 +66,7 @@ class Articles(models.Model):
     external_link = models.ManyToManyField(External_Links, blank=True)
     created_at = models.DateTimeField("Created at", auto_now_add=True)
     views = models.IntegerField("Views number", default=0)
+    price = models.IntegerField("Price", default=0)
     download = models.IntegerField("Download number", default=0)
     slide_one = models.BooleanField("Slide 1", default=False)
     slide_two = models.BooleanField("Slide 2", default=False)

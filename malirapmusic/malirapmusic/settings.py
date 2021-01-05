@@ -44,7 +44,8 @@ INSTALLED_APPS = [
 
     'articles.apps.ArticlesConfig',
     'store.apps.StoreConfig',
-    'controller.apps.ControllerConfig',
+    'chat.apps.ChatConfig',
+    'blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
@@ -126,8 +127,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
+FIXTURE_DIRS = [BASE_DIR, 'fixtures']
 STATIC_URL = '/static/'
+STATIC_ROOT ='static/libraries/'
 STATICFILES_DIRS = [BASE_DIR, 'static']
 #MEDIA_URL = '/'
 MEDIA_ROOT = 'static/'

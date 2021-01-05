@@ -9,14 +9,14 @@
     <div class="bg-white p-4 shadow rounded-3 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <div class="row">
             {% for article in galleries %}
-            <article class="col-6 col-sm-6 col-md-6 col-lg-4 col-lg-4">
+            <article class="col-6 col-sm-6 col-md-6 col-lg-4 mb-4">
                 <div class="ui large image">
                     <a href="{% static article.file.url %}"> <img class="rounded border"
                             src="{% static article.file.url %}"></a>
-                    <ul class="list-unstyled small text-muted meta-title">
+                   <!-- <ul class="list-unstyled small text-muted meta-title">
                         <li class="d-inline-block"><span class="fas fa-clock"></span> {{article.created_at|naturaltime}} |</li>
                         <li class="d-inline-block"><span class="fas fa-eye"></span> {{article.views}} |</li>
-                    </ul>
+                    </ul> -->
                 </div>
             </article>
             {% empty %}
